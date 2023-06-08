@@ -4,7 +4,7 @@
   let clear = document.querySelector(".btn-clear");
   let equal = document.querySelector(".btn-equal");
   let percentageresult = document.querySelector(".percentageresult");
-  let num = document.getElementById(".data-num");
+  let num = document.querySelector(".btn-del");
 
   buttons.forEach(function (button) {
     button.addEventListener("click", function (e) {
@@ -24,11 +24,10 @@
     screen.value = "";
   });
   percentageresult.addEventListener("click", function (e) {
-// function percentage(){
-
-  // let numone=(screen.value * 10)/100;
-  screen.value = (screen.value * 10)/100;
-// }
-  // percentageresult.addEventListener("click", function (e) {
+  screen.value = eval(screen.value.replace("%","/100"));
   });
+  num.addEventListener("click", function (e) {
+  screen.value = screen.value.toString().slice(0,-1);
+  });
+
 })();
